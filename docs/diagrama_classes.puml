@@ -1,0 +1,45 @@
+@startuml
+class Usuario {
+  +id_usuario: int
+  +nome: string
+  +email: string
+  +senha_hash: string
+  +tipo: string
+}
+
+class Jovem {
+  +idade: int
+  +escolaridade: string
+  +area_interesse: string
+}
+
+class Empresa {
+  +cnpj: string
+  +nome_empresa: string
+  +setor: string
+}
+
+class Oportunidade {
+  +id_oportunidade: int
+  +titulo: string
+  +descricao: string
+  +tipo: string
+  +localizacao: string
+  +id_empresa: int
+}
+
+class Candidatura {
+  +id_candidatura: int
+  +id_jovem: int
+  +id_oportunidade: int
+  +data_candidatura: date
+}
+
+Usuario <|-- Jovem
+Usuario <|-- Empresa
+Empresa "1" --> "0..*" Oportunidade : publica
+Jovem "1" --> "0..*" Candidatura
+Oportunidade "1" --> "0..*" Candidatura
+Candidatura --> Oportunidade
+Candidatura --> Jovem
+@enduml

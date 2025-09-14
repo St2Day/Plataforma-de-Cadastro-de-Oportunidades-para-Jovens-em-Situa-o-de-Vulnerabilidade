@@ -1,0 +1,19 @@
+left to right direction
+actor "Jovem" as Jovem
+actor "Empresa" as Empresa
+actor "Administrador" as Admin
+
+Jovem --> (Cadastrar-se)
+Jovem --> (Login)
+Jovem --> (Visualizar Oportunidades)
+Jovem --> (Candidatar-se)
+
+Empresa --> (Cadastrar-se)
+Empresa --> (Login)
+Empresa --> (Publicar Oportunidade)
+Empresa --> (Visualizar Candidatos)
+
+Admin --> (Gerenciar Usuários)
+Admin --> (Gerenciar Oportunidades)
+
+(Visualizar Oportunidades) .u.> (Publicar Oportunidade) : include
